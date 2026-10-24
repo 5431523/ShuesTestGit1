@@ -13,9 +13,9 @@ public partial class WarehouseProduct
 
     public short Quantity { get; set; }
 
-    public virtual Product IdProductNavigation { get; set; } = null!;
+    public virtual Product Product { get; set; } = null!;
 
-    public virtual Size IdSizeNavigation { get; set; } = null!;
+    public virtual Size Size { get; set; } = null!;
 
     public virtual ICollection<OrderWarehouse> OrderWarehouses { get; set; } = new List<OrderWarehouse>();
 }

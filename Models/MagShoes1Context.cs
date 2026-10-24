@@ -73,7 +73,7 @@ public partial class MagShoes1Context : DbContext
                 .HasColumnName("date");
             entity.Property(e => e.IdUser).HasColumnName("id_user");
 
-            entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.Orders)
+            entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.IdUser)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("orders_id_user_fkey");
@@ -92,12 +92,12 @@ public partial class MagShoes1Context : DbContext
             entity.Property(e => e.IdWarehouseProducts).HasColumnName("id_warehouse_products");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
 
-            entity.HasOne(d => d.IdOrderNavigation).WithMany(p => p.OrderWarehouses)
+            entity.HasOne(d => d.Order).WithMany(p => p.OrderWarehouses)
                 .HasForeignKey(d => d.IdOrder)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("order_product_id_order_fkey");
 
-            entity.HasOne(d => d.IdWarehouseProductsNavigation).WithMany(p => p.OrderWarehouses)
+            entity.HasOne(d => d.WarehouseProduct).WithMany(p => p.OrderWarehouses)
                 .HasForeignKey(d => d.IdWarehouseProducts)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("order_warehouse_id_warehouse_products_fkey");
@@ -121,17 +121,17 @@ public partial class MagShoes1Context : DbContext
             entity.Property(e => e.Name).HasColumnName("name");
             entity.Property(e => e.Price).HasColumnName("price");
 
-            entity.HasOne(d => d.IdCategoryNavigation).WithMany(p => p.Products)
+            entity.HasOne(d => d.Category).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdCategory)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("products_id_category_fkey");
 
-            entity.HasOne(d => d.IdManufacturerNavigation).WithMany(p => p.Products)
+            entity.HasOne(d => d.Manufacturer).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdManufacturer)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("products_id_manufacturer_fkey");
 
-            entity.HasOne(d => d.IdTypeNavigation).WithMany(p => p.Products)
+            entity.HasOne(d => d.Type).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdType)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("products_id_type_fkey");
@@ -187,7 +187,7 @@ public partial class MagShoes1Context : DbContext
             entity.Property(e => e.Login).HasColumnName("login");
             entity.Property(e => e.Patronymic).HasColumnName("patronymic");
 
-            entity.HasOne(d => d.IdRoleNavigation).WithMany(p => p.Users)
+            entity.HasOne(d => d.Role).WithMany(p => p.Users)
                 .HasForeignKey(d => d.IdRole)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("users_id_role_fkey");
@@ -206,12 +206,12 @@ public partial class MagShoes1Context : DbContext
             entity.Property(e => e.IdSize).HasColumnName("id_size");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
 
-            entity.HasOne(d => d.IdProductNavigation).WithMany(p => p.WarehouseProducts)
+            entity.HasOne(d => d.Product).WithMany(p => p.WarehouseProducts)
                 .HasForeignKey(d => d.IdProduct)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("warehouse_id_product_names_fkey");
 
-            entity.HasOne(d => d.IdSizeNavigation).WithMany(p => p.WarehouseProducts)
+            entity.HasOne(d => d.Size).WithMany(p => p.WarehouseProducts)
                 .HasForeignKey(d => d.IdSize)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("warehouse_products_id_size_fkey");

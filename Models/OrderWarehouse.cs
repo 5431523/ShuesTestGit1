@@ -13,7 +13,7 @@ public partial class OrderWarehouse
 
     public short Quantity { get; set; }
 
-    public virtual Order IdOrderNavigation { get; set; } = null!;
+    public virtual Order Order { get; set; } = null!;
 
-    public virtual WarehouseProduct IdWarehouseProductsNavigation { get; set; } = null!;
+    public virtual WarehouseProduct WarehouseProduct { get; set; } = null!;
 }

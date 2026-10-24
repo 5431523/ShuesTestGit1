@@ -11,7 +11,7 @@ public partial class Order
 
     public long IdUser { get; set; }
 
-    public virtual User IdUserNavigation { get; set; } = null!;
+    public virtual User User { get; set; } = null!;
 
     public virtual ICollection<OrderWarehouse> OrderWarehouses { get; set; } = new List<OrderWarehouse>();
 }

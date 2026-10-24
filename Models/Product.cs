@@ -23,11 +23,11 @@ public partial class Product
 
     public decimal Price { get; set; }
 
-    public virtual Category IdCategoryNavigation { get; set; } = null!;
+    public virtual Category Category { get; set; } = null!;
 
-    public virtual Manufacturer IdManufacturerNavigation { get; set; } = null!;
+    public virtual Manufacturer Manufacturer { get; set; } = null!;
 
-    public virtual Type IdTypeNavigation { get; set; } = null!;
+    public virtual Type Type { get; set; } = null!;
 
     public virtual ICollection<WarehouseProduct> WarehouseProducts { get; set; } = new List<WarehouseProduct>();
 }
